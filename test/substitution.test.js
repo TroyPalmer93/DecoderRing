@@ -3,20 +3,26 @@ const expect = require("chai").expect;
 const substitution = require("../src/substitution.js");
 describe("substitution", () => {
   it("should return an encrypted string", () => {
-    const firstResult = substitution("hello there, son","phqgiumeaylnofdxjkrcvstzwb");
+    const firstResult = substitution(
+      "hello there, son",
+      "phqgiumeaylnofdxjkrcvstzwb"
+    );
     const secondResult = substitution("message", "$wae&zrdxtfcygvuhbijnokmpl");
-//    const thirdResult = substitution("you are an excellent spy","xoyqmcgrukswaflnthdjpzibev");
+    const thirdResult = substitution(
+      "you are an excellent spy",
+      "xoyqmcgrukswaflnthdjpzibev"
+    );
 
     expect(firstResult).to.equal("einnd ceiki, rdf");
     expect(secondResult).to.equal("y&ii$r&");
-//    expect(thirdResult).to.equal("elp xhm xf mbymwwmfj dne");
+    expect(thirdResult).to.equal("elp xhm xf mbymwwmfj dne");
   });
   it("should return a decoded string", () => {
-    // const firstResult = substitution(
-    //   "jrufscpw",
-    //   "xoyqmcgrukswaflnthdjpzibev",
-    //   false
-    // );
+    const firstResult = substitution(
+      "jrufscpw",
+      "xoyqmcgrukswaflnthdjpzibev",
+      false
+    );
     const secondResult = substitution(
       "y&ii$r&",
       "$wae&zrdxtfcygvuhbijnokmpl",
@@ -27,7 +33,7 @@ describe("substitution", () => {
       "$wae&zrdxtfcygvuhbijnokmpl",
       false
     );
-//    expect(firstResult).to.equal("thinkful");
+    expect(firstResult).to.equal("thinkful");
     expect(secondResult).to.equal("message");
     expect(thirdResult).to.equal("you are an excellent spy");
   });

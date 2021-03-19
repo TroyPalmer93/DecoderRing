@@ -16,8 +16,8 @@ const substitutionModule = (function () {
     if (alphabet.length !== 26 || alphabet === undefined) {
       return false;
     }
-    for (i = 0; i < alphabet.length; i++) {
-      if (alphabetSplit[i] === regularAlpha[i]) {
+    for (i = 1; i < alphabet.length; i++) {
+      if (alphabetSplit[0] === alphabetSplit[i]) {
         return false;
       }
     }
